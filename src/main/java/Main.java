@@ -1,5 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Database.getSessionFactory().getSchemaManager().exportMappedObjects(true);
+        RecipeDatabase.getSessionFactory().getSchemaManager().exportMappedObjects(true);
+
+        RecipeRepository reciperepo = new RecipeRepository();
+        reciperepo.getRecipesHigerThan();
+
+
     }
 }

@@ -5,7 +5,7 @@ import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
 
 
-public class Database {
+public class RecipeDatabase {
     public static SessionFactory getSessionFactory(){
         // TODO
         var sessionFactory = new Configuration()
