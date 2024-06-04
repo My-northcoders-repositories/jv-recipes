@@ -14,11 +14,29 @@ public class Database {
                 // default username / password
                 .setProperty(USER, "sa")
                 .setProperty(PASS, "")
+                //add entities
+                .addAnnotatedClass(Category.class)
+                .addAnnotatedClass(Comment.class)
+                .addAnnotatedClass(Image.class)
+                .addAnnotatedClass(Ingredient.class)
+                .addAnnotatedClass(Rating.class)
+                .addAnnotatedClass(Recipe.class)
+                .addAnnotatedClass(Tag.class)
+                .addAnnotatedClass(User.class)
                 // options to display SQL in console
                 .setProperty(SHOW_SQL, TRUE.toString())
                 .setProperty(FORMAT_SQL, TRUE.toString())
                 .setProperty(HIGHLIGHT_SQL, TRUE.toString())
                 .buildSessionFactory();
         return sessionFactory;
+    }
+
+    static void seed(){
+        var sessionFactory = getSessionFactory();
+        sessionFactory.inTransaction(session -> {
+            session.persist(new Ingredient(500, "Flour", "g"));
+            session.flush();
+            session.persist(new Recipe("Cake"));
+        });
     }
 }
