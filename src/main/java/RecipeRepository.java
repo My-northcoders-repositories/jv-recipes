@@ -11,21 +11,21 @@ public class RecipeRepository {
 All recipes that include a given ingredient
 All recipes with a given tag
 All recipes in a given category*/
-    public void getRecipesHigerThan() {
-        RecipeDatabase.getSessionFactory().inTransaction(session -> {
-            Query query = session.createQuery("FROM RecipeDatabase");
-            List<Recipe> recipes = query.list();
-            System.out.println(recipes);
-            session.flush();
-        });
-    }
-    public void getRecipesHigerThan2() {
-        RecipeDatabase.getSessionFactory().inTransaction(session -> {
-            Query query = session.createQuery("FROM RecipeDatabase");
-            List<Recipe> recipes = query.list();
-            System.out.println(recipes);
-            session.flush();
-        });
-    }
+//    public void getRecipesHigerThan() {
+//        RecipeDatabase.getSessionFactory().inTransaction(session -> {
+//            Query query = session.createQuery("FROM RecipeDatabase");
+//            List<Recipe> recipes = query.list();
+//            System.out.println(recipes);
+//            session.flush();
+//        });
+//    }
+//    public void getRecipesHigerThan2() {
+//        RecipeDatabase.getSessionFactory().inTransaction(session -> {
+//            Query query = session.createQuery("FROM RecipeDatabase");
+//            List<Recipe> recipes = query.list();
+//            System.out.println(recipes);
+//            session.flush();
+//        });
+//    }
 
 }

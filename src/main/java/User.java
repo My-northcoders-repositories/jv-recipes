@@ -5,6 +5,7 @@ import jakarta.persistence.Table;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -21,7 +22,7 @@ public class User {
 
     String password;
 
-    List<Role> roles;
+    Set<Role> roles;
 
     Date registered;
 

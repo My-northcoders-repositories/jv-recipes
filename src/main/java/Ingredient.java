@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 public class Ingredient {
     @Id
     @GeneratedValue
-    int id;
+    long id;
 
     String name;
     int quantity;

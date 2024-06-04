@@ -1,6 +1,7 @@
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 public class Rating {
@@ -12,13 +13,13 @@ public class Rating {
 
     Date rated;
 
-    @ManyToMany
-    Recipe associatedRecipie;
+    @ManyToMany(fetch = FetchType.LAZY)
+    Set<Recipe> associatedRecipie;
 
-    @OneToMany
-    User rater;
+    @OneToMany(fetch = FetchType.LAZY)
+    Set<User> rater;
 
-    public Rating(Stars star, Date rated, Recipe associatedRecipie, User rater) {
+    public Rating(Stars star, Date rated, Set<Recipe> associatedRecipie, Set<User> rater) {
         this.star = star;
         this.rated = rated;
         this.associatedRecipie = associatedRecipie;

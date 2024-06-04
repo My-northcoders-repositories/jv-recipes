@@ -1,9 +1,11 @@
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -18,10 +20,10 @@ public class Recipe {
     int servings;
     DifficultyLevel difficultyLevel;
     Rating rating;
-    List<Ingredient> ingredientsList;
-    List<Category> categoriesList;
+    Set<Ingredient> ingredients;
+    Set<Category> categories;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     User creator;
 
     Date created;

@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        RecipeDatabase.getSessionFactory().getSchemaManager().exportMappedObjects(true);
+        RecipeDatabase.seed();
 
 //        RecipeRepository reciperepo = new RecipeRepository();
 //        reciperepo.getRecipesHigerThan();

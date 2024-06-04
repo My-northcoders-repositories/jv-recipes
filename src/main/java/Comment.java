@@ -6,16 +6,16 @@ import java.sql.Date;
 public class Comment {
     @Id
     @GeneratedValue
-    int id;
+    long id;
 
     String text;
 
     Date posted;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     User author;
 
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     Recipe associatedRecipie;
 
     public Comment(Recipe associatedRecipie, User author, Date posted, String text) {
