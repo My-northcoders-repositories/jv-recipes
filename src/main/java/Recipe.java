@@ -1,14 +1,12 @@
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Recipe {
+class Recipe{
     @Id
     long id;
 
@@ -20,7 +18,11 @@ public class Recipe {
     int servings;
     DifficultyLevel difficultyLevel;
     Rating rating;
+
+    @OneToMany
     Set<Ingredient> ingredients;
+
+    @OneToMany(mappedBy = "recipe")
     Set<Category> categories;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,6 +31,9 @@ public class Recipe {
     Date created;
     Date modified;
 
+    public Recipe(){
+
+    }
     public Recipe(String title) {
         this.title = title;
     }

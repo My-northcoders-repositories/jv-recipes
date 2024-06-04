@@ -1,12 +1,11 @@
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
+import java.io.Serializable;
 
 @Entity
-public class Category {
+@Table(name = "categories")
+ class Category {
 
     @Id
     @GeneratedValue
@@ -14,6 +13,13 @@ public class Category {
 
     @Column(name = "name", nullable = false)
     String name;
+
+    @ManyToOne
+    Recipe recipe;
+
+    public Category() {
+
+    }
 
     public Category(String name) {
         this.name = name;

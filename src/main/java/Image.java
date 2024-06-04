@@ -1,7 +1,9 @@
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class Image {
+ class Image{
 
     @Id
     @GeneratedValue
@@ -14,6 +16,9 @@ public class Image {
     @ManyToOne(fetch = FetchType.LAZY)
     Recipe associatedRecipie;
 
+    public Image(){
+
+    }
     public Image(String fileName, String fileData, Recipe associatedRecipie) {
         this.fileName = fileName;
         this.fileData = fileData;

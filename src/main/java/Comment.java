@@ -1,9 +1,10 @@
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-public class Comment {
+class Comment{
     @Id
     @GeneratedValue
     long id;
@@ -16,10 +17,14 @@ public class Comment {
     User author;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    Recipe associatedRecipie;
+    Recipe associatedRecipe;
+
+    public Comment(){
+
+    }
 
     public Comment(Recipe associatedRecipie, User author, Date posted, String text) {
-        this.associatedRecipie = associatedRecipie;
+        this.associatedRecipe = associatedRecipie;
         this.author = author;
         this.posted = posted;
         this.text = text;

@@ -34,10 +34,17 @@ public class RecipeDatabase {
 
     static void seed(){
         var sessionFactory = getSessionFactory();
+        sessionFactory.getSchemaManager().exportMappedObjects(true);
         sessionFactory.inTransaction(session -> {
             session.persist(new Ingredient(500, "Flour", "g"));
             session.flush();
             session.persist(new Recipe("Cake"));
+            System.out.println("Hello");
         });
+        sessionFactory.inTransaction(session ->{
+            Ingredient ingredient = session.find(Ingredient.class, 500);
+            System.out.println(ingredient.quantity);
+        });
+
     }
 }

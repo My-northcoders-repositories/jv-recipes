@@ -1,10 +1,11 @@
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
 @Entity
-public class Rating {
+class Rating implements Serializable {
     @Id
     @GeneratedValue
     int id;
@@ -18,6 +19,10 @@ public class Rating {
 
     @OneToMany(fetch = FetchType.LAZY)
     Set<User> rater;
+
+    public Rating(){
+
+    }
 
     public Rating(Stars star, Date rated, Set<Recipe> associatedRecipie, Set<User> rater) {
         this.star = star;
